@@ -8,21 +8,40 @@ This program allows a user to create, update, delete, and view tasks through the
 - Maven
 - Gson (json parsing)
 
-## Requirements
-- PREREQ: Java 21
-  
-1. Download the .jar file from this repository. (Optionally move it to a convenient location on the file system)
-2. In the same working directory as the .jar, type "task-cli --version" to make sure the program is functional.
+## Installation
 
-# Features
-Run the program by using
+  ### Prerequisites
+  - Java 21 or higher
+
+  ### Build
+  ```bash
+  mvn clean package
 ```
-java -jar task-cli ...
+  This creates target/task-cli-1.0-SNAPSHOT.jar.
+
+  Run
+  ```bash
+  java -jar target/task-cli-1.0-SNAPSHOT.jar <command> [args]
 ```
-1. ... task-cli add "<your task>"
-2. ... task-cli delete <id>
-3. ... task-cli update <id> "<your task>"
-4. ... tasl-cli list <done | in-progress | todo | {blank}>
+  Optional: Create an alias
+
+  For easier usage, add an alias to your shell profile:
+
+  Bash/Zsh:
+  ```bash
+  alias task="java -jar /path/to/task-cli-1.0-SNAPSHOT.jar"
+```
+  PowerShell:
+  ```ps
+  function task { java -jar C:\path\to\task-cli-1.0-SNAPSHOT.jar @args }
+```
+  Then use it as:
+
+  ```
+  task add "Buy groceries"
+  task list
+  task mark-done 1
+```
 
 # Code Layout
 ```
